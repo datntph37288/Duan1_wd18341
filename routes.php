@@ -11,7 +11,7 @@ $router->addRoute('/', HomeController::class, 'index');
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
-$router->addRoute('/admin/users/update', UserController::class, 'update');
+$router->addRoute('/adgmin/users/update', UserController::class, 'update');
 $router->addRoute('/admin/users/delete', UserController::class, 'delete');
 
 $router->addRoute('/admin/categories', CategoryController::class, 'index');
