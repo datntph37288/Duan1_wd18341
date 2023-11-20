@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 <?php use Ductong\BaseMvc\Controllers\Admin\CategoryController;
 use Ductong\BaseMvc\Controllers\Admin\DashboardController;
 use Ductong\BaseMvc\Controllers\Admin\SanphamController;
 use Ductong\BaseMvc\Controllers\Admin\UserController;
+=======
+<?php
+
+use Ductong\BaseMvc\Controllers\Admin\UserController;
+use Ductong\BaseMvc\Controllers\Admin\CategoryController;
+
+use Ductong\BaseMvc\Controllers\Admin\DashboardController;
+
+use Ductong\BaseMvc\Controllers\Admin\SanphamController;
+
+>>>>>>> 71cf698db5c6628d8d1fc2416762184bb8457edf
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
 
