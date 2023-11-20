@@ -3,17 +3,18 @@
 namespace Ductong\BaseMvc\Controllers\Admin;
 
 use Ductong\BaseMvc\Controller;
-use Ductong\BaseMvc\Models\san_pham;
-
-class sanphamController extends Controller
+use Ductong\BaseMvc\Models\San_pham;
+use Ductong\BaseMvc\Models\Category;
+class SanphamController extends Controller
 {
     /*
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
         $sanpham = (new san_pham)->all();
-        
         $this->render('admin/sanpham/index', ['sanpham' => $sanpham]);
+        
+
     }
 
     public function create() {
@@ -21,17 +22,24 @@ class sanphamController extends Controller
             $data = [
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                'img' => $_FILES['img'],
                 'mota' => $_POST['mota'],
+                'iddm' => $_POST['iddm'],
             ];
-            
+            $filename = $_FILES["img"]['name'];
+            $taget_dir = "../update/";
+            $taget_file = $taget_dir . basename($_FILES["img"]['name']);
+            if(move_uploaded_file($_FILES["img"]['tmp_name'], $taget_file)){
+
+            }else{
+                
+            }
 
             (new san_pham)->insert($data);
 
             header('Location: /admin/sanpham');
         }
-
-        $this->render('admin/sanpham/create');
+        $categories = (new Category())->all();
+        $this->render('admin/sanpham/create',  ["categories" => $categories] );
     }
 
     public function update() {

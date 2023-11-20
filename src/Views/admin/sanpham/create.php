@@ -16,18 +16,16 @@
     <div class="container">
         <h1>Tạo mới sản phẩm</h1>
 
-        <form action="" method="post"  enctype="multipart/form-data">
+        <form action="/path/to/your/data-processing-file.php" method="post" enctype="multipart/form-data">
             <label for="name">Name</label>
             <input type="text" name="name" class="form-control">
 
             <label for="iddm" class="mt-3">Danh muc</label><br>
-            <select name = "iddm" id="iddm" class="form-control">
-                <?php
-                foreach ($categories as $category) :?>
-                    
-                    <option value="<?=$category['id']?>"><?= $category['name'] ?></option>;
-               <?php endforeach ;?>
-            </select> <br>
+            <select name="iddm" id="iddm" class="form-control">
+                <?php foreach ($categories as $category) : ?>
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                <?php endforeach; ?>
+            </select><br>
 
             <label for="price" class="mt-3">Price</label>
             <input type="text" name="price" class="form-control">
@@ -43,3 +41,5 @@
         </form>
     </div>
 </body>
+
+</html>
