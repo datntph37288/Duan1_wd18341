@@ -16,7 +16,7 @@
     <div class="container">
         <h1>Tạo mới sản phẩm</h1>
 
-        <form action="/path/to/your/data-processing-file.php" method="post" enctype="multipart/form-data">
+        <form action="/admin/sanpham/create/submit" method="post" enctype="multipart/form-data">
             <label for="name">Name</label>
             <input type="text" name="name" class="form-control">
 

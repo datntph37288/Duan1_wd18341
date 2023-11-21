@@ -26,20 +26,22 @@
                 <th>Price</th>
                 <th>Img</th>
                 <th>Mo ta</th>
+                <th>Action</th>
             </tr>
 
             <?php foreach ($sanpham as $san_pham) : ?>
                 <tr>
-                    <td><?= htmlspecialchars($san_pham['id']) ?></td>
-                    <td><?= htmlspecialchars($san_pham['name']) ?></td>
-                    <td><?= htmlspecialchars($san_pham['iddm']) ?></td>
-                    <td><?= htmlspecialchars($san_pham['price']) ?></td>
-                    <td><?= htmlspecialchars($san_pham['img']) ?></td>
-                    <td><?= htmlspecialchars($san_pham['mota']) ?></td>
+                    <td><?= ($san_pham['id']) ?></td>
+                    <td><?= ($san_pham['name']) ?></td>
+                    <td><?= ($san_pham['iddm']) ?></td>
+                    <td><?= ($san_pham['price']) ?></td>
+                    <td><img src="../../img/<?= ($san_pham['img'])?>" alt=""></td>
+            
+                    <td><?= ($san_pham['mota']) ?></td>
                     <td>
-                        <a href="/admin/sanpham/update?id=<?= htmlspecialchars($san_pham['id']) ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                        <a href="/admin/sanpham/update?id=<?= ($san_pham['id']) ?>" class="btn btn-primary btn-sm">Cập nhật</a>
                         
-                        <form action="/admin/sanpham/delete?id=<?= htmlspecialchars($san_pham['id']) ?>" method="post">
+                        <form action="/admin/sanpham/delete?id=<?= ($san_pham['id']) ?>" method="post">
                             <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
                         </form>
                     </td>
