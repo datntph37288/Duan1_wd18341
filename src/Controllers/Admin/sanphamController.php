@@ -16,30 +16,29 @@ class SanphamController extends Controller
         
 
     }
+    public function createPage() {
+        $categories = (new Category())->all();
+        $this->render('admin/sanpham/create',  ["categories" => $categories] );
+    }
 
     public function create() {
         if (isset($_POST['btn-submit'])) { 
+            $target_dir = "src/Views/img/";
+            $target_file = $target_dir . basename($_FILES["image"]["name"]);
+            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
             $data = [
                 'name' => $_POST['name'],
-                'price' => $_POST['price'],
-                'mota' => $_POST['mota'],
-                'iddm' => $_POST['iddm'],
+                'price'=> $_POST['price'],
+                'img'=> $target_file,
+                'mota'=> $_POST['mota'],
+                'iddm'=> $_POST['iddm'],
             ];
-            $filename = $_FILES["img"]['name'];
-            $taget_dir = "../update/";
-            $taget_file = $taget_dir . basename($_FILES["img"]['name']);
-            if(move_uploaded_file($_FILES["img"]['tmp_name'], $taget_file)){
-
-            }else{
-                
-            }
-
+            
             (new san_pham)->insert($data);
 
             header('Location: /admin/sanpham');
         }
-        $categories = (new Category())->all();
-        $this->render('admin/sanpham/create',  ["categories" => $categories] );
+        
     }
 
     public function update() {
